@@ -22,6 +22,8 @@ export class MenuComponent {
     // this.permissions = this.securityService.getPermissions() || [];
     this.navBarItems = [
       { label: 'Home', icon: 'fa-solid fa-house', routerLink: '/home', visible: true },
+      { label: 'Dashboard', icon: 'fa-solid fa-chart-line', routerLink: '/dashboard', visible: true },
+      { label: 'Gestión de usuarios', icon: 'fa-solid fa-users', routerLink: '/user-management', visible: true },
       // { label: 'Ranking Institucional', icon: 'fa-solid fa-ranking-star', routerLink: '/institutional-ranking', visible: this.hasPermission(Page_Permissions.INSTITUTIONAL_RANKING) },
       // { label: 'Evaluación Cooperativas', icon: 'fa-solid fa-shop', routerLink: '/coop-evaluation', visible: this.hasPermission(Page_Permissions.COOP_EVALUATION) },
       // { label: 'Evaluación Bancos', icon: 'fa-solid fa-building-columns', routerLink: '/banks-evaluation', visible: this.hasPermission(Page_Permissions.BANK_EVALUATION) },

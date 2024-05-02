@@ -7,10 +7,11 @@ import { MyPrimengModule } from './features/my-primeng/my-primeng.module';
 import { MessageService } from 'primeng/api';
 import { MainComponent } from './features/main/main.component';
 import { MenuComponent } from './features/menu/menu.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RecoverPassComponent } from './features/recover-pass/recover-pass.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TokenInterceptor } from './security/interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 
   ],
   providers: [
-    MessageService
+    MessageService,
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: TokenInterceptor,
+    //   multi: true
+    // }
   ],
   bootstrap: [AppComponent]
 })

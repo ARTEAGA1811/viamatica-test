@@ -25,6 +25,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FieldsetModule } from 'primeng/fieldset';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { DialogModule } from 'primeng/dialog';
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 
 
@@ -58,7 +59,8 @@ import { DialogModule } from 'primeng/dialog';
     DropdownModule,
     FieldsetModule,
     ProgressSpinnerModule,
-    DialogModule
+    DialogModule,
+    SelectButtonModule
   ],
   providers: [
   ]

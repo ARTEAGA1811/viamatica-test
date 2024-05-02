@@ -1,0 +1,74 @@
+<div>
+  <section class="flex justify-content-between">
+    <div class="flex flex-column lg:flex-row lg:align-items-center lg:gap-3">
+      <div class="flex align-items-center">
+        <i class="pi pi-users text-primary" style="font-size: 2rem;"></i>
+        <h2 class="ml-2">Indicadores de Usuario</h2>
+      </div>
+      <!-- <div>
+        <p-selectButton [options]="filterOptions" [(ngModel)]="filterOptionSelected" [allowEmpty]="false"
+          (onChange)="onChangeFilterOptions()">
+          <ng-template let-item pTemplate>
+            <div>
+              <span class="mr-1">{{item.label}}</span>
+              <i [class]="item.icon"></i>
+            </div>
+          </ng-template>
+        </p-selectButton>
+      </div> -->
+    </div>
+  </section>
+  <section class="mt-4">
+    <p-table #dtUsers [value]="users" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+      styleClass="p-datatable-striped"
+      currentPageReportTemplate="Mostrando de {first} a {last} de un total de {totalRecords} usuarios"
+      stateStorage="session" stateKey="dtClients-session">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ID</th>
+          <th>Usename</th>
+          <th>Email</th>
+          <th>Estado</th>
+          <th>Estado Sesión</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+        <tr *ngIf="loadingUsers">
+          <td><p-skeleton></p-skeleton></td>
+          <td><p-skeleton></p-skeleton></td>
+          <td><p-skeleton></p-skeleton></td>
+          <td><p-skeleton></p-skeleton></td>
+          <td><p-skeleton></p-skeleton></td>
+        </tr>
+        <tr *ngIf="!loadingUsers">
+          <td>{{user.id}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.status}}</td>
+          <td>{{user.sessionActive}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </section>
+
+  <section class="flex gap-4 justify-content-center mt-9">
+    <p-card header="Activos">
+      <p class="m-0 flex justify-content-center">
+        {{getActiveUsers()}}
+      </p>
+    </p-card>
+
+    <p-card header="Inactivos">
+      <div class="m-0 flex justify-content-center">
+
+          {{getInactiveUsers()}}
+      </div>
+    </p-card>
+
+    <p-card header="Bloqueados">
+      <p class="m-0 flex justify-content-center">
+        {{getBlockedUsers()}}
+      </p>
+    </p-card>
+  </section>
+</div>
