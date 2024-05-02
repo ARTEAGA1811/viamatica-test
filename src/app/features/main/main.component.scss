@@ -1,0 +1,26 @@
+.layout-app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar {
+  width: 20rem;
+  height: 100vh;
+  background-color: var(--surface-50);
+  flex: 0 0 auto;
+  // display: block;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.layout-main {
+  // display: inline-block;
+  // background-color: #c9c6f3;
+  padding: 1rem 2rem;
+  // width: calc(100% - 20rem);
+  width: 100%;
+  // flex: 1 0 0;
+}

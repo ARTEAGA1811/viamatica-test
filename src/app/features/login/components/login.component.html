@@ -1,0 +1,42 @@
+<main class="main">
+  <section class="presentation">
+    <p-image src="https://viamatica.com/wp-content/uploads/2021/05/Logo-Viamatica.png" alt="logo-viamatica" width="450"></p-image>
+  </section>
+  <section class="login-container">
+    <h2 class="my-5">Iniciar Sesión</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <div class="input-container">
+        <label for="username" class="font-medium">Nombre de Usuario</label>
+        <span class="p-input-icon-left">
+          <i class="pi pi-user"></i>
+          <input type="text" pInputText class="" id="username" formControlName="username" placeholder="Ingresa tu usuario">
+        </span>
+        <span *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="text-sm text-red-500">
+          El usuario es requerido
+        </span>
+      </div>
+
+      <div class="input-container">
+        <label for="password" class="font-medium">Contraseña</label>
+        <span class="p-input-icon-left">
+          <!-- <i class="pi pi-user"></i> -->
+          <p-password id="password" formControlName="password" [feedback]="false" [toggleMask]="true"
+            placeholder="Ingresa tu contraseña"></p-password>
+        </span>
+        <span *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-sm text-red-500">
+          La contraseña es requerida
+        </span>
+      </div>
+
+      <div class="flex gap-2 mb-5">
+        <p-checkbox formControlName="rememberMe" value="rememberMe" inputId="rm" [binary]="true"></p-checkbox>
+        <label for="rm" class="font-medium">Recuérdame</label>
+      </div>
+      <div class="button-container">
+        <p-button type="submit">Entrar</p-button>
+        <p-button type="button" [text]="true" severity="help" (onClick)="goToRecoverPassword()" >¿Olvidaste tu contraseña?</p-button>
+      </div>
+    </form>
+  </section>
+</main>

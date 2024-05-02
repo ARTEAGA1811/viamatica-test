@@ -1,0 +1,27 @@
+<main class="main">
+  <section class="login-container">
+    <h2 class="my-5">Recuperar Contraseña</h2>
+    <div *ngIf="msgs.length > 0">
+      <p-messages [value]="msgs" [enableService]="false"></p-messages>
+    </div>
+    <form [formGroup]="recoverPasswordForm" (ngSubmit)="onSubmit()" class="">
+      <div class="input-container">
+        <label for="email" class="font-medium">Ingresa el correo electrónico con el que está registrada la cuenta para solicitar la recuperación de la contraseña</label>
+        <span class="p-input-icon-left">
+          <i class="pi pi-envelope"></i>
+          <input type="email" pInputText class="" id="email" formControlName="email" placeholder="Ingresa tu correo electrónico">
+        </span>
+        <span *ngIf="recoverPasswordForm.get('email')?.errors?.['required'] && recoverPasswordForm.get('email')?.touched" class="text-sm text-red-500">
+          El correo electrónico es requerido
+        </span>
+        <span *ngIf="recoverPasswordForm.get('email')?.errors?.['minlength'] && recoverPasswordForm.get('email')?.touched" class="text-sm text-red-500">
+          El correo electrónico debe tener al menos 5 caracteres
+        </span>
+      </div>
+      <div class="button-container">
+        <p-button type="submit">Recuperar</p-button>
+        <p-button type="button" severity="secondary" [outlined]="true" routerLink="/login">Regresar</p-button>
+      </div>
+    </form>
+  </section>
+</main>
