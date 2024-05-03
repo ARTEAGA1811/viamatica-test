@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import { StorageService } from 'src/app/security/storage.service';
 
 @Component({
   selector: 'app-menu',
@@ -14,6 +15,7 @@ export class MenuComponent {
 
   constructor(
     // private securityService: SecurityService,
+    private storageService: StorageService,
     private router: Router
   ) { }
 
@@ -53,7 +55,7 @@ export class MenuComponent {
 
 
   signOut() {
-    // this.securityService.removeAuth();
+    this.storageService.removeAuth();
     this.router.navigate(['/login']);
   }
 

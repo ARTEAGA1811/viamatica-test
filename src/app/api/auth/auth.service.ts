@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
 })
 export class AuthService {
   static BASE_URL = `${environment.baseUrlApi}`;
-  signInUrl = `${AuthService.BASE_URL}/login`;
+  signInUrl = `${AuthService.BASE_URL}${environment.auth}/authenticate`;
 
   constructor(private http: HttpClient) { }
 
